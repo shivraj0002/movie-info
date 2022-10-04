@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkalami&family=Signika+Negative:wght@500&display=swap");
+
+.bodyC{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.wraper{
+  background-color: #323162;
+  color: white;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.sectionContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+ grid-template-rows: repeat(6, 1fr);
+ grid-column-gap: 10px;
+  grid-row-gap: 5px;
+ overflow: hidden;  
+}
+
+
+.posterImg {
+  border-radius: 10px 10px 0 0;
+  
+  width: 42em;
+  height: 25em;
+  border-radius: 10px 10px 0 0;
+}
+
+.section {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.section > img {
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+}
+.sectionHeading {
+  font-family: "Alkalami", serif;
+  font-family: "Signika Negative", sans-serif;
+}
+.goBackBtn{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  left: 35px;
+  top: 35px;
+  background-color: transparent;
+  border: none;
+}
+.goBackBtn:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+
+}
+
+@media screen and (max-width:1385px) {
+  .sectionContainer{
+    grid-template-columns: auto;
+    overflow: scroll;
+  }
+  
+}
