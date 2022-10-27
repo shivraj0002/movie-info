@@ -7,37 +7,30 @@ import Movies from "./Movies";
 import Movie from "./Movie";
 import LoadingBar from "react-top-loading-bar";
 
-export default function Home()
-{
+export default function Home() {
   const [movieName, setMoviename] = useState("vikings");
   const [progressBar, setProgressBar] = useState(0);
 
   const [movieD, setMovieD] = useState({ movieData: [], isThere: true });
 
-  const getMovieData = async (value) =>
-  {
+  const getMovieData = async (value) => {
     let data;
-    try
-    {
-      setProgressBar(25);
-      data = await apiSearchMovie(value).catch((error) =>
-      {
+    setProgressBar(25);
+    try {
+      data = await apiSearchMovie(value).catch((error) => {
         throw new Error();
       });
       setProgressBar(55);
-    } catch (error)
-    {
+    } catch (error) {
       data = { Response: false };
     }
     setProgressBar(85);
-    if (data.Response)
-    {
+    if (data.Response) {
       setMovieD({
         movieData: [...data.data],
         isThere: true,
       });
-    } else
-    {
+    } else {
       setMovieD({
         movieData: movieD.movieData,
         isThere: false,
@@ -45,12 +38,10 @@ export default function Home()
     }
     setProgressBar(100);
   };
-  useEffect(() =>
-  {
+  useEffect(() => {
     getMovieData(movieName);
   }, [movieName]);
-  const userSearchHandler = (searchValue) =>
-  {
+  const userSearchHandler = (searchValue) => {
     setMoviename(searchValue);
   };
 
